@@ -1,10 +1,15 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QObject>
+#include <QQuickWindow>
+#include <QSurfaceFormat>
 #include "LoginAuthentication.h"
 
 int main(int argc, char *argv[])
 {
+    // Force ANGLE (Direct3D) for Qt Quick
+    QQuickWindow::setGraphicsApi(QSGRendererInterface::Direct3D11);
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
